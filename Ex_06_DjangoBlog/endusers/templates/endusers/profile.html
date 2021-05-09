@@ -5,8 +5,8 @@
     <div class="media">
       <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
       <div class="media-body">
-        <h2 class="account-heading">{{ user.username }}</h2>
-        <p class="text-secondary">{{ user.email }}</p>
+        <h2 class="account-heading">{{ enduser.username }}</h2>
+        <p class="text-secondary">{{ enduser.email }}</p>
       </div>
     </div>
     <form method="POST" enctype="multipart/form-data">
@@ -14,7 +14,7 @@
       <fieldset class="form-group">
           <legend class="border-bottom mb-4">Fruitfulblog Profile</legend>
           {{ eu_form.as_p}}
-          {{ pr_form.as_p}}
+          {{ pu_form.as_p}}
       </fieldset>
       <div clas="form-group">
           <button class="btn btn-outline-info" type="submit">Profile Update</button>
