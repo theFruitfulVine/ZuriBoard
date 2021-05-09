@@ -19,11 +19,19 @@ def register(request):
 
 @login_required
 def profile(request):
-    eu_form = UserUpdateForm()
-    pr_form = ProfileUpdateForm()
-
+    if request.method == 'POST':
+        eu_form = UserUpdateForm(request.POST, instance=request.user)
+        pu_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if eu_form.is_valid() and pu_form.is_valid():
+            eu_form.save()
+            pu_form.save()
+            messages.success(request, f'Your Profile info has been updated!')
+            return redirect('profile')
+    else:
+        eu_form = UserUpdateForm(instance=request.user)
+        pu_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
         'eu_form' : eu_form,
-        'pr_form' : pr_form
+        'pu_form' : pu_form
     }
-    return render(request, 'endusers/profile.html')
+    return render(request, 'endusers/profile.html', context)
