@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 gunicorn = "*"
 django = "*"
+image = "*"
 
 [requires]
 python_version = "3.8"
