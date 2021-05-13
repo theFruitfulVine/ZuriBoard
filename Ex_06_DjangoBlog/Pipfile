@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
